@@ -95,11 +95,10 @@ function init() {
         choices: [
           "MIT",
           "Apache 2.0",
-          "GNU 3.0",
+          "Boost 1.0",
           "BSD 3",
-          "CDDL 1.0",
+          "GPL",
           "Mozilla 2.0",
-          "Eclipse 2.0",
           "None",
         ],  
       },
