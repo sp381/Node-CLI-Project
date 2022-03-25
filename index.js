@@ -10,8 +10,32 @@ function init() {
        type: 'input',
        name: 'Project-Title',
        message: 'Enter a title for your project: '
-      }
-      
+      },
+      {
+         type: 'input',
+         name: 'Describe-project',
+         message:  'Please describe your project: ',
+      },
+      {
+          type: 'input',
+          name: 'Project-Motivation',
+          message: 'What was your motivation for this project?',
+      },
+      {
+          type: 'input',
+          name: 'project-build',
+          message: 'Why did you build this project?',
+      },
+      {
+          type: 'input',
+          name: 'problem-solved',
+          message: 'What problem did it solve?',
+      },
+      {
+          type: 'input',
+          name: 'learning',
+          message: 'WHat did you learn?',
+      },
     ])
     .then((answers) => {
       console.log(answers);
