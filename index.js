@@ -1,14 +1,13 @@
 // Include packages needed for this application
 const inquirer = require('inquirer'); 
 const fs = require('fs'); 
-const util = require('util');
 const generateMarkdown = require('./utils/generateMarkdown');
 // Create a function to initialize app
 function init() {
     return inquirer.prompt([
       {
        type: 'input',
-       name: 'projectTitle',
+       name: 'Project Title',
        message: 'Enter a title for your project (Required): ',
        validate: projectTitleInput => {
         if (projectTitleInput) {
@@ -22,7 +21,7 @@ function init() {
 
       {
          type: 'input',
-         name: 'describeProject',
+         name: 'Describe Project',
          message:  'Please describe your project: (Required)',
          validate: describeProject => {
           if (describeProject) {
@@ -36,7 +35,7 @@ function init() {
 
       {
           type: 'input',
-          name: 'projectMotivation',
+          name: 'Project Motivation',
           message: 'What was your motivation for this project? (Required)',
           validate: projectMotivation => {
             if (projectMotivation) {
@@ -50,7 +49,7 @@ function init() {
 
       {
           type: 'input',
-          name: 'problemSolved',
+          name: 'Problem Solved',
           message: 'What problem did it solve? (Required)',
           validate: problemSolved => {
             if (problemSolved) {
@@ -64,8 +63,8 @@ function init() {
 
       {
           type: 'input',
-          name: 'learning',
-          message: 'What did you learn (Required)?',
+          name: 'What Did You Learn',
+          message: 'What did you learn from this project (Required)?',
           validate: learning => {
             if (learning) {
               return true;
@@ -76,25 +75,50 @@ function init() {
           },
       },
 
+      {
+        type: 'input',
+        name: 'installation',
+        message: 'What command should you run to install dependencies? (Required)',
+        default: "npm i",
+      },
+
+      {
+        type: 'input',
+        name: 'testing',
+        message: 'What kind of command do you run for testing this project?',
+      },
+
+      {
+        type: 'list',
+        message: 'What licenses does the project have?',
+        name: 'license',
+        choices: [
+          "MIT",
+          "Apache 2.0",
+          "GNU 3.0",
+          "BSD 3",
+          "CDDL 1.0",
+          "Mozilla 2.0",
+          "Eclipse 2.0",
+          "None",
+        ],  
+      },
+
 
     ])
-    .then((answers) => {
-      console.log(answers);
-      fs.writeFile('message.txt', 'data', 'answers', (err) => {
-        if (err) throw err;
-        console.log('The file has been saved!');
-      });
-    })
+    function writeToFile(fileName, data) {
+      fs.writeFile(fileName, data, (err) => {
+        if (err) {
+          console.error(err);
+        }
+        console.log('The README has been created');
+      })
+    }
+
 }
 
-let userAnswers = {};
 init()
-  .then(function (answers) {
-  // const html = generate(answers);
-    userAnswers = answers;
-    console.log(answers);
-  })
-  //error testing  
+  
 .catch((error) => {
   if (error.isTtyError) {
     return true;
