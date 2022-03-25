@@ -4,7 +4,9 @@ const fs = require('fs');
 const generateMarkdown = require('./utils/generateMarkdown');
 // Create a function to initialize app
 function init() {
-    return inquirer.prompt([
+  inquirer
+  prompt([
+    const questions = [  
       {
        type: 'input',
        name: 'Project Title',
@@ -79,13 +81,28 @@ function init() {
         type: 'input',
         name: 'installation',
         message: 'What command should you run to install dependencies? (Required)',
-        default: "npm i",
+        validate: install => {
+          if (install) {
+            return true;
+          } else {
+            console.log('Please tell us how to code an install!');
+            return false;
+          }
+        },
       },
 
       {
         type: 'input',
         name: 'testing',
         message: 'What kind of command do you run for testing this project?',
+        validate: testing => {
+          if (testing) {
+            return true;
+          } else {
+            console.log('Please tell us the command used to run this project!');
+            return false;
+          }
+        },
       },
 
       {
@@ -101,10 +118,19 @@ function init() {
           "Mozilla 2.0",
           "None",
         ],  
+        validate: licenses => {
+          if (licenses) {
+            return true;
+          } else {
+            console.log('Please choose from the list!');
+            return false;
+          }
+        },
       },
 
+    ]
+  ]),
 
-    ])
     function writeToFile(fileName, data) {
       fs.writeFile(fileName, data, (err) => {
         if (err) {
@@ -115,15 +141,4 @@ function init() {
     }
 
 }
-
 init()
-  
-.catch((error) => {
-  if (error.isTtyError) {
-    return true;
-    // Prompt couldn't be rendered in the current environment
-  } else {
-    return false;
-    // Something else went wrong
-  }
-});
