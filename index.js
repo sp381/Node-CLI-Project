@@ -4,12 +4,10 @@ const fs = require('fs');
 const generateMarkdown = require('./utils/generateMarkdown');
 // Create a function to initialize app
 function init() {
-  inquirer
-  prompt([
-    const questions = [  
+  inquirer.prompt([
       {
        type: 'input',
-       name: 'Project Title',
+       name: 'projectTitle',
        message: 'Enter a title for your project (Required): ',
        validate: projectTitleInput => {
         if (projectTitleInput) {
@@ -20,10 +18,23 @@ function init() {
         }
       },
       },
+      {
+        type: 'input',
+        name: 'userName',
+        message: 'Enter GitHub username (Required): ',
+        validate: projectTitleInput => {
+         if (projectTitleInput) {
+           return true;
+         } else {
+           console.log('Please enter GitHub name!');
+           return false;
+         }
+       },
+       },
 
       {
          type: 'input',
-         name: 'Describe Project',
+         name: 'describeProject',
          message:  'Please describe your project: (Required)',
          validate: describeProject => {
           if (describeProject) {
@@ -37,7 +48,7 @@ function init() {
 
       {
           type: 'input',
-          name: 'Project Motivation',
+          name: 'projectMotivation',
           message: 'What was your motivation for this project? (Required)',
           validate: projectMotivation => {
             if (projectMotivation) {
@@ -51,7 +62,7 @@ function init() {
 
       {
           type: 'input',
-          name: 'Problem Solved',
+          name: 'problemSolved',
           message: 'What problem did it solve? (Required)',
           validate: problemSolved => {
             if (problemSolved) {
@@ -65,7 +76,7 @@ function init() {
 
       {
           type: 'input',
-          name: 'What Did You Learn',
+          name: 'whatDidYouLearn',
           message: 'What did you learn from this project (Required)?',
           validate: learning => {
             if (learning) {
@@ -128,10 +139,14 @@ function init() {
         },
       },
 
-    ]
-  ]),
+    
+  ])
+  .then(responses => {
+    generateMarkdown(responses);
+    writeToFile("GeneratedREADME.md", generateMarkdown(responses));
+  })
 
-    function writeToFile(fileName, data) {
+    function writeToFile(fileName, data ) {
       fs.writeFile(fileName, data, (err) => {
         if (err) {
           console.error(err);
