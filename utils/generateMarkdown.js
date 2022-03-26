@@ -16,8 +16,18 @@ function generateMarkdown(data) {
   const githubPage = `https://github.com/${data.userName}`
   return `
   # ${data.projectTitle}
-  # Table of Contents
+
+  ## Please describe your project: 
   ${data.describeProject}
+
+  ## What was the motivation for your project? 
+  ${data.projectMotivation}
+
+  ## What problem does it solve? 
+  ${data.problemSolved}
+  
+  # Table of Contents
+ 
 
 This is a test
   ${githubPage}
