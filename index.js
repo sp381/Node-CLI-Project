@@ -9,6 +9,7 @@ function init() {
        type: 'input',
        name: 'projectTitle',
        message: 'Enter a title for your project (Required): ',
+       default: 'README Generator',
        validate: projectTitleInput => {
         if (projectTitleInput) {
           return true;
@@ -22,6 +23,7 @@ function init() {
         type: 'input',
         name: 'userName',
         message: 'Enter GitHub username (Required): ',
+        default: 'sp381',
         validate: projectTitleInput => {
          if (projectTitleInput) {
            return true;
@@ -36,6 +38,7 @@ function init() {
          type: 'input',
          name: 'describeProject',
          message:  'Please describe your project: (Required)',
+         default: 'This project is a README Generator',
          validate: describeProject => {
           if (describeProject) {
             return true;
@@ -50,6 +53,7 @@ function init() {
           type: 'input',
           name: 'projectMotivation',
           message: 'What was your motivation for this project? (Required)',
+          default: 'I was motivated to create a README that could be quickly generated with a few answered questions by the user.',
           validate: projectMotivation => {
             if (projectMotivation) {
               return true;
@@ -64,6 +68,7 @@ function init() {
           type: 'input',
           name: 'problemSolved',
           message: 'What problem did it solve? (Required)',
+          default: 'I learned how to use Node and learned how much time will be saved when creating a README.md in the future!',
           validate: problemSolved => {
             if (problemSolved) {
               return true;
@@ -78,6 +83,7 @@ function init() {
           type: 'input',
           name: 'whatDidYouLearn',
           message: 'What did you learn from this project (Required)?',
+          default: 'I learned how to use Node and how to creat cool badges.',
           validate: learning => {
             if (learning) {
               return true;
@@ -92,6 +98,7 @@ function init() {
         type: 'input',
         name: 'installation',
         message: 'What command should you run to install dependencies? (Required)',
+        default: 'npm install',
         validate: install => {
           if (install) {
             return true;
@@ -106,6 +113,7 @@ function init() {
         type: 'input',
         name: 'testing',
         message: 'What kind of command do you run for testing this project?',
+        default: 'npm test',
         validate: testing => {
           if (testing) {
             return true;
@@ -138,6 +146,21 @@ function init() {
           }
         },
       },
+
+      {
+        type: 'input',
+        name: 'userEmail',
+        message: 'Enter your email address (Required): ',
+        default: 'sarah.powell381@gmail.com',
+        validate: userEmail => {
+         if (userEmail) {
+           return true;
+         } else {
+           console.log('Please enter your email address!');
+           return false;
+         }
+       },
+       },
 
     
   ])

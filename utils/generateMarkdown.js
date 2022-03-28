@@ -1,6 +1,6 @@
 // TODO: Create a function that returns a license badge based on which license is passed in
 // If there is no license, return an empty string
-function renderLicenseBadge(license) {}
+function renderLicenseBadge(license) {};
 // TODO: Create a function that returns the license link
 // If there is no license, return an empty string
 function renderLicenseLink(license) {}
@@ -13,9 +13,17 @@ function renderLicenseSection(license) {}
 function generateMarkdown(data) {
   console.log(data);
   const githubPage = `https://github.com/${data.userName}`
-  const userEmail = `sarah.powell381@gmail.com/`
+  const userEmail = `https://mail.google.com/${data.userEmail}` 
   return `
-  # ${data.projectTitle}
+  # **${data.projectTitle}**
+  [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+  [![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
+  [![License](https://img.shields.io/badge/License-Boost_1.0-lightblue.svg)](https://www.boost.org/LICENSE_1_0.txt)
+  [![License](https://img.shields.io/badge/License-BSD_3--Clause-blue.svg)](https://opensource.org/licenses/BSD-3-Clause)
+
+
+
+  # Project Description:
 
   ## Please describe your project: 
   ${data.describeProject}
@@ -35,6 +43,7 @@ function generateMarkdown(data) {
   - [Usage](#usage)
   - [Credits](#credits)
   - [License](#license)
+  - [Testing](#testing)
   - [Questions](#questions)
 
   # Installation
@@ -42,12 +51,16 @@ function generateMarkdown(data) {
 
   # Usage
 
-  ![alt text](assets/images/screenshot.png)
+  ![image text](/images/screenshot.png)
   
   # Credits
     "Placeholder text since I did not have any contributors for this project."
 
   # License
+  ${data.license}
+
+  # Testing
+  ${data.testing}
 
   # Questions:
   ## Below is my GitHub link and contact information. Please reach out, I'd love to work with you! 
