@@ -1,25 +1,21 @@
 
-  # **README**
+  # **README Generator**
   [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-  [![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
-  [![License](https://img.shields.io/badge/License-Boost_1.0-lightblue.svg)](https://www.boost.org/LICENSE_1_0.txt)
-  [![License](https://img.shields.io/badge/License-BSD_3--Clause-blue.svg)](https://opensource.org/licenses/BSD-3-Clause)
-
 
 
   # Project Description:
 
   ## Please describe your project: 
-  d
+  This project is a README Generator
 
   ## What was the motivation for your project? 
-  asd
+  I was motivated to create a README that could be quickly generated with a few answered questions by the user.
 
   ## What problem does it solve? 
-  asd
+  I learned how to use Node and learned how much time will be saved when creating a README.md in the future!
 
   ## What did you learn?
-  asd
+  I learned how to use Node and how to creat cool badges.
 
   # Table of Contents
 
@@ -31,11 +27,11 @@
   - [Questions](#questions)
 
   # Installation
-  as
+  npm install
 
   # Usage
 
-  ![image text](/images/screenshot.png)
+  ![image text](/images/Capture.PNG)
   
   # Credits
     "Placeholder text since I did not have any contributors for this project."
@@ -44,10 +40,10 @@
   MIT
 
   # Testing
-  asd
+  npm test
 
   # Questions:
   ## Below is my GitHub link and contact information. Please reach out, I'd love to work with you! 
-  https://github.com/as
+  https://github.com/sp381
   sarah.powell381@gmail.com
 
