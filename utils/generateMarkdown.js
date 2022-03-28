@@ -1,7 +1,6 @@
 // TODO: Create a function that returns a license badge based on which license is passed in
 // If there is no license, return an empty string
 function renderLicenseBadge(license) {}
-[![license: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 // TODO: Create a function that returns the license link
 // If there is no license, return an empty string
 function renderLicenseLink(license) {}
@@ -14,6 +13,7 @@ function renderLicenseSection(license) {}
 function generateMarkdown(data) {
   console.log(data);
   const githubPage = `https://github.com/${data.userName}`
+  const userEmail = `sarah.powell381@gmail.com/`
   return `
   # ${data.projectTitle}
 
@@ -35,9 +35,24 @@ function generateMarkdown(data) {
   - [Usage](#usage)
   - [Credits](#credits)
   - [License](#license)
+  - [Questions](#questions)
 
-This is a test
+  # Installation
+  ${data.installation}
+
+  # Usage
+
+  ![alt text](assets/images/screenshot.png)
+  
+  # Credits
+    "Placeholder text since I did not have any contributors for this project."
+
+  # License
+
+  # Questions:
+  ## Below is my GitHub link and contact information. Please reach out, I'd love to work with you! 
   ${githubPage}
+  ${data.userEmail}
 
 `;
 }
